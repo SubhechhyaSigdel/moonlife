@@ -25,9 +25,6 @@ if (contactForm) {
     const name = contactForm.querySelector(
       'input[placeholder="Your Name"]'
     ).value;
-    const email = contactForm.querySelector(
-      'input[placeholder="Your Email"]'
-    ).value;
     const subject = contactForm.querySelector(
       'input[placeholder="Subject"]'
     ).value;
@@ -36,7 +33,7 @@ if (contactForm) {
     // Create WhatsApp message with owner's phone number
     const phoneNumber = "9779857048948"; // Owner's phone number without + sign
     const whatsappMessage = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`
+      `Name: ${name}\nSubject: ${subject}\nMessage: ${message}`
     );
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
 
