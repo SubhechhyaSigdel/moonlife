@@ -23,7 +23,7 @@ body {
 
 /* Navigation */
 .navbar {
-  background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+  background: linear-gradient(135deg, #001a4d 0%, #001c5c 100%);
   color: white;
   padding: 0.75rem 0;
   position: sticky;
@@ -915,7 +915,7 @@ body {
 
 /* Footer */
 .footer {
-  background: #2c2c2c;
+  background: linear-gradient(135deg, #001a4d 0%, #001c5c 100%);
   color: white;
   padding: 3rem 2rem 1rem;
   margin-top: 3rem;
@@ -975,9 +975,31 @@ body {
   transition: all 0.3s;
 }
 
-.social-links a:hover {
+.social-links a:nth-child(1) {
+  background: #1877f2;
+  color: white;
+}
+
+.social-links a:nth-child(1):hover {
+  background: #165ce4;
+}
+
+.social-links a:nth-child(2) {
+  background: var(--primary-color);
+  color: #2c2c2c;
+}
+
+.social-links a:nth-child(2):hover {
   background: var(--secondary-color);
-  transform: translateY(-3px);
+}
+
+.social-links a:nth-child(3) {
+  background: #25d366;
+  color: white;
+}
+
+.social-links a:nth-child(3):hover {
+  background: #20ba5a;
 }
 
 .footer-bottom {
