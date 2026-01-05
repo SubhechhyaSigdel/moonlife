@@ -674,6 +674,54 @@ body {
   margin-top: 1rem;
 }
 
+/* Locations Map */
+.locations-map {
+  margin-top: 4rem;
+  padding: 3rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.locations-map h3 {
+  font-size: 2rem;
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.map-container {
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.map-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--primary-color);
+  color: var(--text-dark);
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s;
+  font-weight: 600;
+}
+
+.map-link:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 /* Testimonials Section */
 .testimonials {
   padding: 5rem 2rem;
@@ -1049,6 +1097,19 @@ body {
   .testimonials-grid {
     grid-template-columns: 1fr;
     gap: 1.2rem;
+  }
+
+  .map-container iframe {
+    height: 300px !important;
+  }
+
+  .map-links {
+    flex-direction: column;
+  }
+
+  .map-link {
+    width: 100%;
+    justify-content: center;
   }
 
   .about-container {
