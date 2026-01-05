@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <style>
+      .leaf-gold { fill: #d4af37; }
+      .leaf-green { fill: #2d5016; }
+    </style>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="#f5f3f0" stroke="#8b6914" stroke-width="2"/>
+  
+  <!-- Left leaf (Gold) -->
+  <path class="leaf-gold" d="M 70 80 Q 65 100 70 120 Q 75 110 80 100 Q 75 95 70 80 Z"/>
+  
+  <!-- Right leaf (Green) -->
+  <path class="leaf-green" d="M 130 80 Q 135 100 130 120 Q 125 110 120 100 Q 125 95 130 80 Z"/>
+  
+  <!-- Center circle -->
+  <circle cx="100" cy="100" r="25" fill="#d4af37" opacity="0.9"/>
+  
+  <!-- Center text/symbol -->
+  <text x="100" y="108" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#8b6914">M</text>
+</svg>
