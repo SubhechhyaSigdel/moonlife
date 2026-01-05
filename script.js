@@ -109,6 +109,24 @@ document.querySelectorAll(".btn-primary, .btn-secondary").forEach((btn) => {
   });
 });
 
+// FAQ Accordion Functionality
+document.querySelectorAll(".faq-question").forEach((button) => {
+  button.addEventListener("click", function () {
+    const faqItem = this.parentElement;
+    const isActive = faqItem.classList.contains("active");
+
+    // Close all other FAQ items
+    document.querySelectorAll(".faq-item").forEach((item) => {
+      item.classList.remove("active");
+    });
+
+    // Toggle current item
+    if (!isActive) {
+      faqItem.classList.add("active");
+    }
+  });
+});
+
 // Add animation to nav on scroll
 window.addEventListener("scroll", () => {
   const navbar = document.querySelector(".navbar");
