@@ -1,6 +1,29 @@
 // Mobile Menu Toggle - Disabled (nav always visible)
 // Navigation is now always visible on all screen sizes
 
+// Dark Mode / Light Mode Toggle
+const themeToggle = document.getElementById("theme-toggle");
+const htmlElement = document.documentElement;
+
+// Check for saved theme preference or default to light mode
+const currentTheme = localStorage.getItem("theme") || "light";
+if (currentTheme === "dark") {
+  document.body.classList.add("dark-mode");
+  themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+}
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("theme", "dark");
+    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+  } else {
+    localStorage.setItem("theme", "light");
+    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+  }
+});
+
 // Smooth Scrolling for Navigation Links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
