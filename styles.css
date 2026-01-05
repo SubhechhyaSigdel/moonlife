@@ -535,7 +535,8 @@ body {
 /* Owner Section */
 .owner {
   padding: 5rem 2rem;
-  background: linear-gradient(135deg, var(--light-bg) 0%, #fff 100%);
+  background: linear-gradient(135deg, var(--light-bg) 0%, var(--bg-color) 100%);
+  color: var(--text-dark);
 }
 
 .owner,
@@ -597,7 +598,7 @@ body {
 }
 
 .owner-bio {
-  color: var(--text-light);
+  color: var(--text-dark);
   line-height: 1.8;
 }
 
@@ -614,12 +615,13 @@ body {
 }
 
 .value-item {
-  background: white;
+  background: var(--card-bg);
   padding: 1.5rem;
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
   transition: all 0.3s;
+  border: 1px solid var(--border-color);
 }
 
 .value-item:hover {
@@ -640,7 +642,7 @@ body {
 }
 
 .value-item p {
-  color: var(--text-light);
+  color: var(--text-dark);
   font-size: 0.9rem;
   line-height: 1.6;
 }
