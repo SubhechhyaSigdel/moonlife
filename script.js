@@ -1,5 +1,21 @@
-// Mobile Menu Toggle - Disabled (nav always visible)
-// Navigation is now always visible on all screen sizes
+// Mobile Menu Toggle
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+if (hamburger) {
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  });
+
+  // Close menu when a link is clicked
+  document.querySelectorAll(".nav-menu a").forEach((link) => {
+    link.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+    });
+  });
+}
 
 // Dark Mode / Light Mode Toggle
 const themeToggle = document.getElementById("theme-toggle");
@@ -30,6 +46,11 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     e.preventDefault();
     const target = document.querySelector(this.getAttribute("href"));
     if (target) {
+      // Close mobile menu if open
+      if (hamburger) {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+      }
       target.scrollIntoView({
         behavior: "smooth",
         block: "start",

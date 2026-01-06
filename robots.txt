@@ -1,10 +1,30 @@
 User-agent: *
 Allow: /
+Allow: /images/
+Allow: /styles.css
+Allow: /script.js
 Disallow: /admin/
 Disallow: /private/
+Disallow: /temp/
+Disallow: /*.json$
+Disallow: /*?*
 
 # Sitemaps
 Sitemap: https://moonlife.onrender.com/sitemap.xml
 
-# Crawl delay
-Crawl-delay: 1
+# Crawl delay - Allow faster crawling for better indexing
+Crawl-delay: 0
+
+# Request rate (requests per second)
+Request-rate: 10/1s
+
+# Specific bot rules
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+

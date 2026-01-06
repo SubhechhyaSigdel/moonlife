@@ -31,6 +31,23 @@ body {
   color: var(--text-dark);
   background-color: var(--bg-color);
   transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Touch-friendly buttons and interactive elements */
+button,
+a,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Navigation */
@@ -51,6 +68,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .logo {
@@ -114,17 +133,34 @@ body {
 }
 
 .hamburger {
-  display: none !important;
+  display: none;
   flex-direction: column;
   cursor: pointer;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  z-index: 1001;
 }
 
 .hamburger span {
   width: 25px;
   height: 3px;
   background: white;
-  margin: 5px 0;
   transition: 0.3s;
+  transform-origin: center;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
 }
 
 /* Hero Section */
@@ -1179,13 +1215,21 @@ body {
 /* Tablet - Landscape (768px to 1023px) */
 @media (max-width: 1023px) and (min-width: 768px) {
   .nav-menu {
-    display: flex !important;
-    gap: 1.2rem;
-    font-size: 0.9rem;
+    gap: 1rem;
+    font-size: 0.85rem;
   }
 
   .nav-container {
     padding: 0 1.5rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .theme-toggle {
+    width: 38px;
+    height: 38px;
   }
 
   .hero {
@@ -1196,16 +1240,20 @@ body {
   }
 
   .hero-content h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
   .hero-content p {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .hero-buttons {
-    flex-direction: row;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .btn {
+    width: 100%;
   }
 
   .hero-placeholder {
@@ -1214,7 +1262,7 @@ body {
   }
 
   .section-header h2 {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
   .about-container {
@@ -1277,9 +1325,8 @@ body {
 /* Tablet - Portrait (481px to 767px) */
 @media (max-width: 767px) and (min-width: 481px) {
   .nav-menu {
-    display: flex !important;
     gap: 0.8rem;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 
   .nav-container {
@@ -1287,7 +1334,13 @@ body {
   }
 
   .logo {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+  }
+
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
   }
 
   .hero {
@@ -1390,28 +1443,97 @@ body {
   }
 }
 
+/* Extra Small (max-width: 319px) */
+@media (max-width: 319px) {
+  .logo {
+    font-size: 1rem;
+  }
+
+  .nav-menu a {
+    font-size: 0.65rem;
+    padding: 0.5rem 0.3rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.3rem;
+  }
+
+  .btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .footer-section h4 {
+    font-size: 0.8rem;
+  }
+}
+
 /* Mobile - Large (320px to 480px) */
 @media (max-width: 480px) {
+  .navbar {
+    position: relative;
+  }
+
   .nav-container {
     padding: 0 0.75rem;
+    flex-wrap: nowrap;
   }
 
   .logo {
     font-size: 1.2rem;
+    flex-shrink: 0;
   }
 
   .nav-menu {
-    display: flex !important;
-    gap: 0.5rem;
-    font-size: 0.75rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: linear-gradient(135deg, #001a4d 0%, #001c5c 100%);
+    padding: 1rem 0;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    font-size: 0.8rem;
+    z-index: 999;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+  }
+
+  .nav-menu.active {
+    max-height: 400px;
+  }
+
+  .nav-menu li {
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    width: 100%;
   }
 
   .nav-menu a {
-    padding: 0.5rem;
+    display: block;
+    padding: 0.75rem 1rem;
   }
 
   .hamburger {
-    display: none !important;
+    display: flex;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .theme-toggle {
+    position: absolute;
+    right: 3.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
   }
 
   .hero {
@@ -1444,6 +1566,7 @@ body {
   .btn {
     padding: 0.65rem 1rem;
     font-size: 0.8rem;
+    width: 100%;
   }
 
   .section-header h2 {
@@ -1658,5 +1781,14 @@ body {
     min-height: 44px;
     display: flex;
     align-items: center;
+  }
+
+  /* WhatsApp button adjustment */
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 24px;
   }
 }
