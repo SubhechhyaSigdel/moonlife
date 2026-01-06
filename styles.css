@@ -1331,6 +1331,24 @@ textarea {
     gap: 1rem;
   }
 
+  .owner-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .owner-image img {
+    width: 280px;
+    height: 280px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+  }
+
+  .owner-placeholder {
+    width: 280px;
+    height: 280px;
+  }
+
   .maps-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
@@ -1436,6 +1454,24 @@ textarea {
 
   .map-box {
     padding: 1.2rem;
+  }
+
+  .owner-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .owner-image img {
+    width: 250px;
+    height: 250px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+  }
+
+  .owner-placeholder {
+    width: 250px;
+    height: 250px;
   }
 
   .about-container {
@@ -1586,7 +1622,7 @@ textarea {
   }
 
   .hero-content h1 {
-    font-size: clamp(1.1rem, 3vw + 0.3rem, 1.5rem);
+    font-size: clamp(1.2rem, 5vw + 0.2rem, 1.8rem);
     margin-bottom: 0.8rem;
     line-height: 1.4;
     font-weight: 700;
